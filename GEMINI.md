@@ -25,21 +25,21 @@ source .venv/bin/activate
 `uv pip`를 사용하여 필요한 파이썬 라이브러리를 설치합니다.
 
 ```bash
-uv add requests beautifulsoup4 pandas numpy matplotlib seaborn scikit-learn koreanize-matplotlib loguru, wordcloud, ploty
+uv add requests beautifulsoup4 pandas numpy matplotlib seaborn scikit-learn koreanize-matplotlib loguru wordcloud
 ```
 라이브러리를 설치하고 pyproject.toml 파일에 dependencies를 갱신해 줘
 
 ### 3. Matplotlib 한글 설정 
-
 `koreanize-matplotlib` 라이브러리를 사용하면 복잡한 설정 없이 `matplotlib`에서 한글을 쉽게 사용할 수 있습니다.
 
-**사용법:**
+**koreanize-matplotlib 사용법:**
 파이썬 스크립트 상단에 다음 코드를 추가하기만 하면 됩니다.
 
 ```python
 import koreanize_matplotlib
 ```
-### 3. 한글
+
+#### 한글 폰트를 직접 설정한다면 아래와 같은 폰트를 사용하세요.
 * Windows OS에서는 'Malgun Gothic' 폰트를 사용하세요.
 * Mac OS에서는 'AppleGothic' 폰트를 사용하세요.
 
@@ -81,13 +81,12 @@ logger.add("file_{time}.log", rotation="500 MB") # 500MB 마다 로그 파일 �
     │   └── data/
     └── pyproject.toml
     └── uv.lock
-    ...
     ```
     *   **`.venv/`**: 모든 프로젝트가 공유하는 파이썬 가상 환경입니다.
     *   **`project_A/`, `project_B/`**: 개별 프로젝트 폴더입니다. 각 프로젝트는 자체 데이터(`data`) 디렉토리를 가집니다.
-    *   **`pyproject.toml`, `uv.lock`**: uv 의존성 관련 파일입니다.
+    *   **pyproject.toml**,**uv.lock**: uv 의존성 관련 파일입니다. 
 
-## 데이터 스크래핑할 때 다음의 정보를 꼭 문서에 포함 할 것
+## 데이터를  웹스크래핑할 때 다음의 정보를 꼭 문서에 포함 할 것 
 
 ### 네트워크 메뉴를 통해 실제 데이터를 가져오는 URL
 ### 해당 Request에 대한 Header 정보
