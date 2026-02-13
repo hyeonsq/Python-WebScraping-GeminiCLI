@@ -29,3 +29,7 @@ starbucks_service_codes = {
     "P90": "티바나",
     "Z9999": "일반서비스"
 }
+
+#
+
+python ssg_com\ssg_scraper.py
