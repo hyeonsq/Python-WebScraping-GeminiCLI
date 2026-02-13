@@ -4,40 +4,39 @@
 
 ### 데이터 일부
 
-아래는 `yes24_ai.csv` 파일의 첫 5행을 보여줍니다.
-
-| Title | Book_URL | Author | Publisher | Publication_Date | Original_Price | Discounted_Price | Sales_Index | Review_Count | Rating | Tags | Image_URL |
-| :-------------------------------------- | :--------------------------------------------------------------------------------------------------------------------- | :------- | :---------- | :--------------- | :------------- | :--------------- | :---------- | :----------- | :----- | :-------------------------------------- | :---------------------------------------- |
-| 된다! 하루 만에 끝내는 제미나이 활용법 | https://www.yes24.com/product/goods/163301895 | 권서림 | 이지스퍼블리싱 | 2025년 11월 | 20000 | 18000 | 92 | 62 | 9.8 | #분철, #AI, #AI사용법, #AI이미지, #AI활용콘텐츠 | https://image.yes24.com/goods/163301895/L |
-| 요즘 바이브 코딩 안티그래비티 완벽 가이드 | https://www.yes24.com/product/goods/174658020 | 최지호 | 골든래빗 | 2026년 02월 | 28000 | 25200 | 26 | 2 | 10.0 | #분철 | https://image.yes24.com/goods/174658020/L |
-| 누구나 아는 나만 모르는 제미나이 | https://www.yes24.com/product/goods/172517063 | 이성원 | 한빛미디어 | 2026년 01월 | 19000 | 17100 | 26 | 11 | 10.0 | #제미나이, #AI, #AI관련서, #생성형AI, #AI사용법 | https://image.yes24.com/goods/172517063/L |
-| AI 시대의 질문력, 프롬프트 엔지니어링 | https://www.yes24.com/product/goods/150566390 | 류한석 | 코리아닷컴(Korea.com) | 2025년 08월 | 27000 | 24300 | 59 | 44 | 9.5 | #분철, #클로드, #제미나이, #생성형AI, #챗GPT | https://image.yes24.com/goods/150566390/L |
-| 요즘 교사를 위한 에듀테크 5대장 : 캔바, 패들렛, 북크리에이터, 노션, 챗GPT∙제미나이 | https://www.yes24.com/product/goods/169849422 | 안익재 | 앤써북 | 2025년 12월 | 19800 | 17820 | 17 | 84 | 10.0 | | https://image.yes24.com/goods/169849422/L |
+| Title                                               | Book_URL                                      | Author   | Publisher        | Publication_Date   |   Original_Price |   Discounted_Price |   Sales_Index |   Review_Count |   Rating | Tags                               | Image_URL                                 |
+|:----------------------------------------------------|:----------------------------------------------|:---------|:-----------------|:-------------------|-----------------:|-------------------:|--------------:|---------------:|---------:|:-----------------------------------|:------------------------------------------|
+| 된다! 하루 만에 끝내는 제미나이 활용법                              | https://www.yes24.com/product/goods/163301895 | 권서림      | 이지스퍼블리싱          | 2025년 11월          |            20000 |              18000 |            92 |             62 |      9.8 | #분철, #AI, #AI사용법, #AI이미지, #AI활용콘텐츠 | https://image.yes24.com/goods/163301895/L |
+| 요즘 바이브 코딩 안티그래비티 완벽 가이드                             | https://www.yes24.com/product/goods/174658020 | 최지호      | 골든래빗             | 2026년 02월          |            28000 |              25200 |            26 |              2 |     10   | #분철                                | https://image.yes24.com/goods/174658020/L |
+| 누구나 아는 나만 모르는 제미나이                                  | https://www.yes24.com/product/goods/172517063 | 이성원      | 한빛미디어            | 2026년 01월          |            19000 |              17100 |            26 |             11 |     10   | #제미나이, #AI, #AI관련서, #생성형AI, #AI사용법 | https://image.yes24.com/goods/172517063/L |
+| AI 시대의 질문력, 프롬프트 엔지니어링                              | https://www.yes24.com/product/goods/150566390 | 류한석      | 코리아닷컴(Korea.com) | 2025년 08월          |            27000 |              24300 |            59 |             44 |      9.5 | #분철, #클로드, #제미나이, #생성형AI, #챗GPT    | https://image.yes24.com/goods/150566390/L |
+| 요즘 교사를 위한 에듀테크 5대장 : 캔바, 패들렛, 북크리에이터, 노션, 챗GPT∙제미나이 | https://www.yes24.com/product/goods/169849422 | 안익재      | 앤써북              | 2025년 12월          |            19800 |              17820 |            17 |             84 |     10   | nan                                | https://image.yes24.com/goods/169849422/L |
 
 ### 데이터 정보
 
 총 12개의 컬럼과 25개의 행으로 구성되어 있습니다. 각 컬럼의 데이터 타입과 결측치 여부는 다음과 같습니다.
 
 ```
-<class 'pandas.core.frame.DataFrame'>
+<class 'pandas.DataFrame'>
 RangeIndex: 25 entries, 0 to 24
 Data columns (total 12 columns):
  #   Column            Non-Null Count  Dtype  
 ---  ------            --------------  -----  
- 0   Title             25 non-null     object 
- 1   Book_URL          25 non-null     object 
- 2   Author            25 non-null     object 
- 3   Publisher         25 non-null     object 
- 4   Publication_Date  25 non-null     object 
+ 0   Title             25 non-null     str    
+ 1   Book_URL          25 non-null     str    
+ 2   Author            25 non-null     str    
+ 3   Publisher         25 non-null     str    
+ 4   Publication_Date  25 non-null     str    
  5   Original_Price    25 non-null     int64  
  6   Discounted_Price  25 non-null     int64  
  7   Sales_Index       25 non-null     int64  
  8   Review_Count      25 non-null     int64  
  9   Rating            25 non-null     float64
- 10  Tags              23 non-null     object 
- 11  Image_URL         25 non-null     object 
-dtypes: float64(1), int64(4), object(7)
-memory usage: 2.5+ KB
+ 10  Tags              23 non-null     str    
+ 11  Image_URL         25 non-null     str    
+dtypes: float64(1), int64(4), str(7)
+memory usage: 2.5 KB
+
 ```
 
 `Tags` 컬럼에 2개의 결측치가 존재하며, `Original_Price`, `Discounted_Price`, `Sales_Index`, `Review_Count`, `Rating` 컬럼은 수치형 데이터로 구성되어 있습니다.
@@ -45,15 +44,16 @@ memory usage: 2.5+ KB
 ### 기초 통계
 
 ```
-             Original_Price  Discounted_Price    Sales_Index  Review_Count     Rating
-count             25.000000         25.000000      25.000000     25.000000  25.000000
-mean           23512.000000      21160.800000     836.280000     38.600000   9.608000
-std             4312.086389       3880.877750    3816.634626     27.876404   0.457859
-min            19000.000000      17100.000000       6.000000      2.000000   8.400000
-25%            20000.000000      18000.000000      10.000000     22.000000   9.600000
-50%            24000.000000      21600.000000      26.000000     31.000000   9.700000
-75%            27000.000000      24300.000000      60.000000     45.000000   9.800000
-max            35000.000000      31500.000000   19311.000000     97.000000  10.000000
+|       |   Original_Price |   Discounted_Price |   Sales_Index |   Review_Count |    Rating |
+|:------|-----------------:|-------------------:|--------------:|---------------:|----------:|
+| count |            25    |               25   |         25    |        25      | 25        |
+| mean  |         23632    |            21268.8 |        803.36 |        37.4    |  9.612    |
+| std   |          4068.45 |             3661.6 |       3855.96 |        22.7211 |  0.330807 |
+| min   |         19000    |            17100   |          6    |         2      |  8.4      |
+| 25%   |         20000    |            18000   |          9    |        22      |  9.6      |
+| 50%   |         24000    |            21600   |         17    |        31      |  9.6      |
+| 75%   |         26000    |            23400   |         37    |        45      |  9.8      |
+| max   |         35000    |            31500   |      19311    |        97      | 10        |
 ```
 
 ## 2. 데이터 시각화
