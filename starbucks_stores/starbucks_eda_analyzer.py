@@ -1,5 +1,4 @@
 # python starbucks_stores\eda_analyzer.py
-
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
@@ -10,7 +9,26 @@ import os
 
 # --- 설정 ---
 DATA_PATH = "starbucks_stores/data/starbucks_ai.csv"
-REPORT_PATH = "starbucks_stores/eda_report.md"
+REPORT_PATH = "starbucks_stores/analysis_report.md"
+
+starbucks_service_codes = {
+    "T30": "사이렌오더",
+    "T20": "현금없는매장",
+    "T17": "주차가능",
+    "T05": "카드충전",
+    "T65": "공기청정기",
+    "T16": "친환경매장",
+    "T08": "무선인터넷",
+    "T32": "전자영수증",
+    "T56": "디카페인",
+    "T52": "에코매장",
+    "T34": "딜리버스",
+    "T21": "기프트카드",
+    "T43": "현금영수증",
+    "P80": "블론드",
+    "P90": "티바나",
+    "Z9999": "일반서비스"
+}
 IMAGE_DIR = "starbucks_stores/images"
 logger.add("starbucks_stores/eda_{time}.log", rotation="500 MB", encoding="utf-8")
 
@@ -115,10 +133,13 @@ def main():
     add_to_report("## 2. 매장 특성 분석 (theme_state)")
 
     # theme_state에서 특성 추출
-    all_themes = []
-    df['theme_state'].dropna().str.split('@').apply(lambda themes: all_themes.extend(theme for theme in themes if theme))
+    all_themes_codes = []
+    df['theme_state'].dropna().str.split('@').apply(lambda themes: all_themes_codes.extend(theme for theme in themes if theme))
 
-    feature_summary = pd.Series(all_themes).value_counts()
+    # 서비스 코드를 한글 설명으로 매핑
+    all_themes_names = [starbucks_service_codes.get(code, code) for code in all_themes_codes]
+
+    feature_summary = pd.Series(all_themes_names).value_counts()
 
     if not feature_summary.empty:
         feature_summary_df = pd.DataFrame(feature_summary).reset_index()
@@ -132,7 +153,6 @@ def main():
         ax.set_title('상위 10개 매장 서비스/특징')
         ax.set_ylabel('매장 수')
         save_plot(fig, 'top10_features.png', '상위 10개 매장 서비스/특징')
-        add_to_report(feature_summary_df.head(10).to_markdown())
 
     else:
         add_to_report("분석할 수 있는 매장 특성(theme_state) 정보가 부족합니다.")
