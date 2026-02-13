@@ -33,3 +33,5 @@ starbucks_service_codes = {
 #
 
 python ssg_com\ssg_scraper.py
+
+python ssg_com\ssg_scraper_sqlite.py
